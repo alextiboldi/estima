@@ -1,0 +1,58 @@
+// useEffect(() => {
+//   // TODO: Fetch projects from API
+//   const mockProjects: Project[] = [
+//     {
+//       id: "1",
+//       name: "E-commerce Platform",
+//       description: "Online shopping platform redesign",
+//       totalStories: 12,
+//       estimatedStories: 8,
+//     },
+//     {
+//       id: "2",
+//       name: "Mobile App",
+//       description: "Cross-platform mobile application",
+//       totalStories: 8,
+//       estimatedStories: 3,
+//     },
+//   ];
+//   setProjects(mockProjects);
+// }, []);
+
+
+
+  //   const mockStories: Story[] = [
+  //     {
+  //       id: "1",
+  //       title: "User Authentication Flow",
+  //       description: "Implement OAuth2 authentication with multiple providers",
+  //       status: "PENDING",
+  //       projectId: "1",
+  //       finalPoints: null,
+  //       createdAt: new Date(),
+  //       updatedAt: new Date(),
+  //     },
+  //     // Add more mock stories as needed
+  //   ];
+  //   setStories(mockStories);
+  // }, [projectId]);
+
+
+
+    // useEffect(() => {
+  //   const pusher = new PusherClient(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
+  //     cluster: process.env.NEXT_PUBLIC_PUSHER_CLUSTER!,
+  //   });
+
+  //   const channel = pusher.subscribe(`story-${storyId}`);
+  //   channel.bind("estimation-updated", (data: any) => {
+  //     if (data.finalPoints) {
+  //       toast.success("Story points have been calculated!");
+  //     }
+  //   });
+
+  //   return () => {
+  //     channel.unbind_all();
+  //     channel.unsubscribe();
+  //   };
+  // }, [storyId]);
