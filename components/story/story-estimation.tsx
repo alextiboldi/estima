@@ -42,7 +42,7 @@ export function StoryEstimation({ storyId }: StoryEstimationProps) {
     });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [storyPoints, setStoryPoints] = useState<number | null>(null);
+  const [storyPoints, setStoryPoints] = useState<number | null>(1);
 
   const handleEstimationChange = (
     criteria: keyof EstimationCriteria,
