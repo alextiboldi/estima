@@ -19,20 +19,15 @@ import {
   AlertDialogTitle,
 } from "../ui/alert-dialog";
 import { useState } from "react";
+import { Project } from "@prisma/client";
 
 interface ProjectCardProps {
-  project: {
-    id: string;
-    name: string;
-    description: string;
-    totalStories: number;
-    estimatedStories: number;
-  };
+  project: Project;
   onDelete: (projectId: string) => void;
 }
 
 export function ProjectCard({ project, onDelete }: ProjectCardProps) {
-  const progress = (project.estimatedStories / project.totalStories) * 100;
+  // const progress = (project.estimatedStories / project.totalStories) * 100;
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -87,11 +82,11 @@ export function ProjectCard({ project, onDelete }: ProjectCardProps) {
             <div className="space-y-4">
               <div className="flex justify-between text-sm">
                 <span className="text-muted-foreground">Stories Estimated</span>
-                <span className="font-medium">
+                {/* <span className="font-medium">
                   {project.estimatedStories}/{project.totalStories}
-                </span>
+                </span> */}
               </div>
-              <Progress value={progress} className="h-2" />
+              {/* <Progress value={progress} className="h-2" /> */}
             </div>
           </CardContent>
         </Card>

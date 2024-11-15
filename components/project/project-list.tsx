@@ -3,36 +3,14 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { PlusCircle } from "lucide-react";
-import { CreateProjectDialog } from "@/components/project/create-project-dialog";
+
 import { ProjectCard } from "@/components/project/project-card";
-import { useSession } from "next-auth/react";
 
-interface Project {
-  id: string;
-  name: string;
-  description: string;
-  totalStories: number;
-  estimatedStories: number;
-}
+import { Project } from "@prisma/client";
 
-export function ProjectList() {
-  const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
-  const [projects, setProjects] = useState<Project[]>([]);
-  const { data: session } = useSession();
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await fetch("/api/projects");
-        const data = await response.json();
-        setProjects(data);
-      } catch (error) {
-        console.error("Error fetching projects:", error);
-      }
-    };
-
-    fetchProjects();
-  }, []);
+export function ProjectList({ projectList }: { projectList: Project[] }) {
+  // const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
+  const [projects, setProjects] = useState<Project[]>(projectList);
 
   const handleDeleteProject = async (projectId: string) => {
     try {
@@ -80,7 +58,7 @@ export function ProjectList() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {projects.length === 0 && (
+        {Array.isArray(projects) && projects.length === 0 && (
           <p className="text-muted-foreground">
             No projects found. Go to settings and import existing projects from
             Jira
